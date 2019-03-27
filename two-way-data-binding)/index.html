@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo</title>
+	<meta charset="utf-8">
+	<script src="js/utils.js"></script>
+	<script src="js/observer.js"></script>
+	<script src="js/watcher.js"></script>
+	<script src="js/compile.js"></script>
+	<script src="js/index.js"></script>
+</head>
+<body>
+	<div id="name">
+		<div>{{name}}</div>
+		<div>{{query.name}}</div>
+	</div>
+	<script type="text/javascript">
+		var ele = document.querySelector('#name');
+	    var selfVue = new SelfVue({
+	    	data: {
+	    		name: 'hello world',
+	    		query: {
+	    			name: 'query'
+	    		}
+	    	},
+	    	el: '#name',
+	    	watcher: 'name'
+	    })
+	 
+	    window.setTimeout(function () {
+	        selfVue.name = 'canfoo';
+	        selfVue.query.name = 'queryUpdate';
+	    }, 2000)
+	</script>
+</body>
+</html>
